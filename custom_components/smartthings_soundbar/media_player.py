@@ -7,8 +7,15 @@ from homeassistant.components.media_player import (
     MediaPlayerEntity,
     PLATFORM_SCHEMA,
     DEVICE_CLASS_TV,
-    DEVICE_CLASS_SPEAKER,
+    MediaPlayerEntityFeature,
+
 )
+# from homeassistant.components.media_player import (
+#     MediaPlayerDeviceClass,
+#     MediaPlayerEntity,
+#     MediaPlayerState,
+#     MediaType,
+# )
 from homeassistant.components.media_player.const import (
     SUPPORT_PAUSE,
     SUPPORT_PLAY,
@@ -30,14 +37,22 @@ DEFAULT_NAME = "SmartThings Soundbar"
 CONF_MAX_VOLUME = "max_volume"
 
 SUPPORT_SMARTTHINGS_SOUNDBAR = (
-        SUPPORT_PAUSE
-        | SUPPORT_VOLUME_STEP
-        | SUPPORT_VOLUME_MUTE
-        | SUPPORT_VOLUME_SET
-        | SUPPORT_SELECT_SOURCE
-        | SUPPORT_TURN_OFF
-        | SUPPORT_TURN_ON
-        | SUPPORT_PLAY
+        MediaPlayerEntityFeature.TURN_OFF
+    | MediaPlayerEntityFeature.NEXT_TRACK
+    | MediaPlayerEntityFeature.PAUSE
+    | MediaPlayerEntityFeature.PREVIOUS_TRACK
+    | MediaPlayerEntityFeature.SELECT_SOURCE
+    | MediaPlayerEntityFeature.PLAY_MEDIA
+    | MediaPlayerEntityFeature.PLAY
+    | MediaPlayerEntityFeature.STOP
+        # SUPPORT_PAUSE
+        # | SUPPORT_VOLUME_STEP
+        # | SUPPORT_VOLUME_MUTE
+        # | SUPPORT_VOLUME_SET
+        # | SUPPORT_SELECT_SOURCE
+        # | SUPPORT_TURN_OFF
+        # | SUPPORT_TURN_ON
+        # | SUPPORT_PLAY
 )
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
